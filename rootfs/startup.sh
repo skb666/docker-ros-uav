@@ -77,6 +77,6 @@ fi
 PASSWORD=
 HTTP_PASSWORD=
 
-source /opt/ros/melodic/setup.bash && cd /root/catkin_ws/src && catkin_init_workspace
+source /opt/ros/noetic/setup.bash && cd /root/catkin_ws/src && catkin_init_workspace
 
 exec /bin/tini -- supervisord -n -c /etc/supervisor/supervisord.conf

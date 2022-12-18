@@ -1,4 +1,4 @@
-FROM skb666/ubuntu-desktop-lxde-vnc:bionic
+FROM skb666/ubuntu-desktop-lxde-vnc:focal
 
 RUN sed -i 's@//.*archive.ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.list \
     && sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
@@ -9,16 +9,16 @@ RUN sh -c 'echo "deb [signed-by=/usr/share/keyrings/ros.gpg] https://mirrors.ust
     && gpg --export C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654 | tee /usr/share/keyrings/ros.gpg > /dev/null
 
 RUN apt update \
-    && apt install -y ros-melodic-desktop-full ros-melodic-mavros ros-melodic-mavros-extras\
-    && sh -c 'echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc' \
+    && apt install -y ros-noetic-desktop-full ros-noetic-mavros ros-noetic-mavros-extras\
+    && sh -c 'echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc' \
     && apt autoremove \
     && apt autoclean \
     && rm -rf /var/lib/apt/lists/*
 
 RUN apt update \
     && apt install -y \
-        python-rosdep python-vcstools \
-        python-rosinstall python-rosinstall-generator python-wstool \
+        python3-rosdep python3-vcstools \
+        python3-rosinstall python3-rosinstall-generator python3-wstool \
         build-essential pkg-config cmake curl wget zip unzip tar \
     && apt autoremove \
     && apt autoclean \

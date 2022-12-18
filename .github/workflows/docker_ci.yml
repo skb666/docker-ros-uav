@@ -3,10 +3,10 @@ name: ci
 on:
   push:
     branches:
-      - 'melodic'
+      - 'noetic'
   pull_request:
     branches:
-      - 'melodic'
+      - 'noetic'
 
 jobs:
   docker:
@@ -39,4 +39,4 @@ jobs:
           push: true
           tags: |
             skb666/ros-uav:latest
-            skb666/ros-uav:melodic
+            skb666/ros-uav:noetic
