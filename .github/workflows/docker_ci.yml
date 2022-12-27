@@ -7,6 +7,8 @@ on:
   pull_request:
     branches:
       - 'melodic'
+  schedule:
+    - cron: "0 4 1 * *"
 
 jobs:
   docker:
